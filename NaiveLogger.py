@@ -54,13 +54,3 @@ class NaiveLoggerFactory:
                 return -1;
             finally:
                 return None;
-            
-            
-    
-
-if __name__ == '__main__':
-    l = NaiveLoggerFactory();
-    l.logger.info("A?");
-    l.logger.error("A?");
-    l._register();
-    
