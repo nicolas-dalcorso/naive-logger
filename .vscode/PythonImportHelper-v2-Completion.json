@@ -1,0 +1,92 @@
+[
+    {
+        "label": "logging;",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging;",
+        "description": "logging;",
+        "detail": "logging;",
+        "documentation": {}
+    },
+    {
+        "label": "logging.config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "TextWrappers",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "TextWrappers",
+        "description": "TextWrappers",
+        "detail": "TextWrappers",
+        "documentation": {}
+    },
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "NaiveLoggerFactory",
+        "kind": 6,
+        "importPath": "NaiveLogger",
+        "description": "NaiveLogger",
+        "peekOfCode": "class NaiveLoggerFactory:\n    __slots__ = 'configuration', 'logger', 'temporaryLogFilepath', 'permanentLogFilepath'\n    DEFAULT_CONFIGFILE_FILEPATH:str=r'./logs/NaiveLoggerConfig.ini';\n    DEFAULT_LOGS_DIRECTORY:str=r'./logs/';\n    def __init__(self, mode:str='configfile', filepath:str=DEFAULT_CONFIGFILE_FILEPATH,\n                 permanentLogFilepath:str=DEFAULT_LOGS_DIRECTORY + 'plog.log') -> None:\n        \"\"\"Initializes a `NaiveLogger` object according to the `mode` parameter.\n        Args:\n            mode (str, optional): \n                'configfile'    :   reads logger configuration from config '.ini' file.            ",
+        "detail": "NaiveLogger",
+        "documentation": {}
+    },
+    {
+        "label": "getLoggerConfigFromFile",
+        "kind": 2,
+        "importPath": "NaiveLogger",
+        "description": "NaiveLogger",
+        "peekOfCode": "def getLoggerConfigFromFile(configFile:str) -> tw.TextWrapper:\n    return tw.TextWrapper(configFile);\nclass NaiveLoggerFactory:\n    __slots__ = 'configuration', 'logger', 'temporaryLogFilepath', 'permanentLogFilepath'\n    DEFAULT_CONFIGFILE_FILEPATH:str=r'./logs/NaiveLoggerConfig.ini';\n    DEFAULT_LOGS_DIRECTORY:str=r'./logs/';\n    def __init__(self, mode:str='configfile', filepath:str=DEFAULT_CONFIGFILE_FILEPATH,\n                 permanentLogFilepath:str=DEFAULT_LOGS_DIRECTORY + 'plog.log') -> None:\n        \"\"\"Initializes a `NaiveLogger` object according to the `mode` parameter.\n        Args:",
+        "detail": "NaiveLogger",
+        "documentation": {}
+    },
+    {
+        "label": "FormattedString",
+        "kind": 6,
+        "importPath": "TextWrappers",
+        "description": "TextWrappers",
+        "peekOfCode": "class FormattedString:\n    \"\"\"A class for formatting a string according to creation rules.\n    \"\"\"\n    __slots__ = 'string', 'rules';\n    DEFAULT_STRING_FORMAT = {\n        'WIDTH'     : 0,\n        'LENGTH'    : 0,\n        'FILL'      : ' ',\n        'ALIGN'     : '<'\n    };",
+        "detail": "TextWrappers",
+        "documentation": {}
+    },
+    {
+        "label": "DTString",
+        "kind": 6,
+        "importPath": "TextWrappers",
+        "description": "TextWrappers",
+        "peekOfCode": "class DTString(FormattedString):\n    DEFAULT_TEMPLATE_STRING_FORMAT:dict={\n        'WIDTH'     :   16,\n        'LENGTH'    :   16,\n        'FILL'      :   ' ',\n        'ALIGN'     :   '<'\n    }\n    def _defineRules(self, rules: dict) -> dict:\n        return self.DEFAULT_TEMPLATE_STRING_FORMAT;\n    def _formatString(self, string: str) -> str:",
+        "detail": "TextWrappers",
+        "documentation": {}
+    },
+    {
+        "label": "TextWrapper",
+        "kind": 6,
+        "importPath": "TextWrappers",
+        "description": "TextWrappers",
+        "peekOfCode": "class TextWrapper:\n    __slots__ = 'filepath', 'file', 'isValid';\n    #   Initialization functions;\n    def _getFilepath(self, filepath:str) -> str or None:\n        from os import path;\n        if(path.isfile(filepath)):\n            return filepath;\n        else:\n            return None;\n    def _getFile(self, filepath:str):",
+        "detail": "TextWrappers",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigWrapper",
+        "kind": 6,
+        "importPath": "TextWrappers",
+        "description": "TextWrappers",
+        "peekOfCode": "class ConfigWrapper(TextWrapper):\n    \"\"\"Implements a `TextWrapper` object alongside with a `configparser`\n    object from the configparser module.\n    \"\"\"\n    DEFAULT_FILE_EXTENSION = r'.ini';\n    def _chkFileExtension(self) -> bool:\n    #   Checks if the file has the correct file extension.\n        return self.filepath[-4:] == self.DEFAULT_FILE_EXTENSION;\n    def _isValid(self) -> bool:\n    #   Extends the `_isValid` checking method.",
+        "detail": "TextWrappers",
+        "documentation": {}
+    }
+]
